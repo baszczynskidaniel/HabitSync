@@ -4,7 +4,9 @@ import io.ktor.client.call.NoTransformationFoundException
 import io.ktor.client.call.body
 import io.ktor.client.network.sockets.SocketTimeoutException
 import io.ktor.client.statement.HttpResponse
+import io.ktor.client.statement.bodyAsText
 import io.ktor.util.network.UnresolvedAddressException
+import io.ktor.utils.io.InternalAPI
 import kotlinx.coroutines.ensureActive
 import kotlin.coroutines.coroutineContext
 import org.example.project.core.domain.DataError
@@ -36,12 +38,15 @@ suspend inline fun <reified T> safeCall(
 
 
 
+@OptIn(InternalAPI::class)
 suspend inline fun<reified T> responseToResult(
     response: HttpResponse
 ):  Result<T, DataError.Remote> {
+
     return when(response.status.value) {
         in 200 .. 299 -> {
             try {
+
                 org.example.project.core.domain.Result.Success(response.body<T>())
             } catch (e: NoTransformationFoundException) {
                 Result.Error(DataError.Remote.SERIALIZATION)

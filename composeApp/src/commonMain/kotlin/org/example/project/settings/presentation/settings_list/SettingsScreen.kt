@@ -1,6 +1,8 @@
 package org.example.project.settings.presentation.settings_list
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -8,6 +10,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import habitsync.composeapp.generated.resources.Res
@@ -86,6 +89,20 @@ fun SettingsScreen(
                 LanguageIcon(state.settings.language)
             }
         )
+        if(state.settings.userId.isNotBlank()) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center
+            ) {
+                TextButton(
+                    onClick = {
+                        onAction(SettingsAction.Logout)
+                    }
+                ) {
+                    Text("Log out")
+                }
+            }
+        }
 
     }
 }

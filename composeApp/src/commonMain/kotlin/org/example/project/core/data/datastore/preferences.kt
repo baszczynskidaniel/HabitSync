@@ -10,4 +10,5 @@ object PreferenceKeys {
     val DYNAMIC_COLOR = booleanPreferencesKey("dynamic_color")
     val LANGUAGE = stringPreferencesKey("language")
     val COUNTER = intPreferencesKey("counter")
+    val USER_ID = stringPreferencesKey("")
 }

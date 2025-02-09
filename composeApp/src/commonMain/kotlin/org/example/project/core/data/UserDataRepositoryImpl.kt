@@ -18,7 +18,9 @@ class UserDataRepositoryImpl(
     }
 
 
-
+    override suspend fun setUserId(userId: String) {
+        miuPreferencesDataSource.setUserId(userId)
+    }
 
     override suspend fun appTheme(isDarkTheme: Boolean) {
         miuPreferencesDataSource.setAppTheme(isDarkTheme)

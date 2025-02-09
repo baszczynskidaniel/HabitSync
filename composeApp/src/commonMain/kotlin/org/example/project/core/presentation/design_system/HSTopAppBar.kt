@@ -23,12 +23,12 @@ fun HSTopAppBar(
     scrollBehavior: TopAppBarScrollBehavior? = null
 ) {
     CenterAlignedTopAppBar(
-        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-            containerColor = MaterialTheme.colorScheme.secondaryContainer,
-            navigationIconContentColor = MaterialTheme.colorScheme.onSecondaryContainer,
-            titleContentColor = MaterialTheme.colorScheme.onSecondaryContainer,
-            actionIconContentColor = MaterialTheme.colorScheme.onSecondaryContainer,
-        ),
+//        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+//            containerColor = MaterialTheme.colorScheme.secondaryContainer,
+//            navigationIconContentColor = MaterialTheme.colorScheme.onSecondaryContainer,
+//            titleContentColor = MaterialTheme.colorScheme.onSecondaryContainer,
+//            actionIconContentColor = MaterialTheme.colorScheme.onSecondaryContainer,
+//        ),
         title = title,
         modifier = modifier,
         navigationIcon = navigationIcon,

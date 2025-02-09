@@ -41,6 +41,9 @@ class SettingsViewModel(
                     userDataRepository.setDynamicColor(action.dynamicColorChange)
                 }
 
+                SettingsAction.Logout -> {
+                    userDataRepository.setUserId("")
+                }
             }
 
         }

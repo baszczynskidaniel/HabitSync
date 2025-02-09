@@ -50,7 +50,8 @@ kotlin {
             implementation(libs.ktor.client.okhttp)
         }
         commonMain.dependencies {
-
+            implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
+            implementation("io.ktor:ktor-client-content-negotiation:2.0.0")
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
@@ -115,6 +116,8 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.core.i18n)
+    implementation(libs.firebase.firestore.ktx)
     debugImplementation(compose.uiTooling)
 }
 

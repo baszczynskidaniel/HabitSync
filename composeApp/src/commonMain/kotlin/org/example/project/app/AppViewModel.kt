@@ -18,6 +18,4 @@ class AppViewModel(
         initialValue = Settings(),
         started = SharingStarted.WhileSubscribed(5_000)
     )
-
-
 }

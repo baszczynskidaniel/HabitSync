@@ -5,6 +5,7 @@ data class Settings(
      val darkTheme: Boolean = true,
      val dynamicColor: Boolean = false,
      val language: Language = Language.ENGLISH,
+     val userId: String = "",
 )
 
 enum class AppTheme {

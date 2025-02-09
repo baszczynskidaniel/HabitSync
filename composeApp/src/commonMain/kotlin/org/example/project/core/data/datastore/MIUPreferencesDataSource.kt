@@ -17,12 +17,19 @@ class MIUPreferencesDataSource(private val dataStore: DataStore<Preferences>) {
 
     }
 
+    suspend fun setUserId(userId: String) {
+        dataStore.edit { preferences ->
+            preferences[PreferenceKeys.USER_ID] = userId
+        }
+    }
+
     private suspend fun getSettings(): Settings {
         return dataStore.data.map { preferences ->
             Settings(
                 darkTheme = preferences[PreferenceKeys.DARK_THEME] ?: true,
                 dynamicColor = preferences[PreferenceKeys.DYNAMIC_COLOR] ?: true,
                 language = Language.fromString((preferences[PreferenceKeys.LANGUAGE] ?: Language.ENGLISH.toString())) ?: Language.ENGLISH,
+                userId = preferences[PreferenceKeys.USER_ID] ?: ""
             )
         }.first()
     }
